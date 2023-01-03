@@ -48,3 +48,14 @@ end
 
 
 gem "composite_primary_keys", "~> 14.0"
+
+gem "jwt", "~> 2.6"
+
+gem "bcrypt", "~> 3.1"
+
+
+gem 'solargraph', "~> 0.48.0", group: :development
+
+gem 'solargraph-rails', "~> 1.1.0", group: :development
+
+gem "email_validator", "~> 2.2"
