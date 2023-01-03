@@ -3,9 +3,9 @@ class ApplicationController < ActionController::API
 
   before_action :authenticate_request
 
-  skip_before_action :authenticate_request, only: [:index]
+  skip_before_action :authenticate_request, only: [:homepage]
 
-  def index
+  def homepage
     render json: { title: 'Simple Chat Api' }
   end
 
@@ -13,17 +13,19 @@ class ApplicationController < ActionController::API
 
   def authenticate_request
     header = request.headers['Authorization']
-
-    header = header.split(' ') if header
-
-    render json: { success: false, message: 'No token provided', data: {} }, status: :unauthorized unless header
+    header = header.split('Bearer ')[1] if header
+    unless header
+      return render json: { success: false, message: 'No token provided', data: {} },
+                    status: :unauthorized
+    end
 
     decoded = jwt_decode(header)
-
     @current_user = User.find(decoded[:id_user])
-
-    render json: { success: false, message: 'User not found', data: {} }, status: :unauthorized unless @current_user
+    unless @current_user
+      render json: { success: false, message: 'User not found', data: {} },
+             status: :unauthorized
+    end
   rescue StandardError => e
-    render json: { success: false, message: e, data: {} }, status: :unauthorized
+    render json: { success: false, message: 'invalid token', data: {} }, status: :unauthorized
   end
 end
