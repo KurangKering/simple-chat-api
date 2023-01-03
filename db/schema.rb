@@ -10,8 +10,16 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema[7.0].define(version: 2023_01_03_034644) do
-  create_table "users", primary_key: "id_user", id: :integer, charset: "latin1", force: :cascade do |t|
+ActiveRecord::Schema[7.0].define(version: 2023_01_03_042750) do
+  create_table "friendships", primary_key: ["id_user_1", "id_user_2"], charset: "utf8mb4", force: :cascade do |t|
+    t.integer "id_user_1", null: false
+    t.integer "id_user_2", null: false
+    t.string "status"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
+
+  create_table "users", primary_key: "id_user", id: :integer, charset: "utf8mb4", force: :cascade do |t|
     t.string "name", null: false
     t.string "email", null: false
     t.string "phone_number"

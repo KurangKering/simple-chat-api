@@ -46,3 +46,5 @@ group :development do
   # gem "spring"
 end
 
+
+gem "composite_primary_keys", "~> 14.0"
