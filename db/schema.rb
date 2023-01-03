@@ -10,11 +10,20 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema[7.0].define(version: 2023_01_03_051333) do
+ActiveRecord::Schema[7.0].define(version: 2023_01_03_051912) do
   create_table "friendships", primary_key: ["id_user_1", "id_user_2"], charset: "utf8mb4", force: :cascade do |t|
     t.integer "id_user_1", null: false
     t.integer "id_user_2", null: false
     t.string "status"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
+
+  create_table "message_recipients", primary_key: ["id_message", "id_recipient"], charset: "utf8mb4", force: :cascade do |t|
+    t.integer "id_message", null: false
+    t.integer "id_recipient", null: false
+    t.integer "is_read"
+    t.datetime "read_at"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
   end
