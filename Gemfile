@@ -44,6 +44,11 @@ end
 group :development do
   # Speed up commands on slow machines / big apps [https://github.com/rails/spring]
   # gem "spring"
+
+gem 'solargraph', "~> 0.48.0"
+gem 'solargraph-rails', "~> 1.1.0"
+gem "rubocop", "~> 1.42"
+
 end
 
 
@@ -53,9 +58,7 @@ gem "jwt", "~> 2.6"
 
 gem "bcrypt", "~> 3.1"
 
-
-gem 'solargraph', "~> 0.48.0", group: :development
-
-gem 'solargraph-rails', "~> 1.1.0", group: :development
-
 gem "email_validator", "~> 2.2"
+
+gem "pagy", "~> 6.0"
+

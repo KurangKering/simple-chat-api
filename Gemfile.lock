@@ -126,6 +126,7 @@ GEM
     nio4r (2.5.8)
     nokogiri (1.13.10-x64-mingw-ucrt)
       racc (~> 1.4)
+    pagy (6.0.0)
     parallel (1.22.1)
     parser (3.2.0.0)
       ast (~> 2.4.1)
@@ -227,8 +228,10 @@ DEPENDENCIES
   email_validator (~> 2.2)
   jwt (~> 2.6)
   mysql2 (~> 0.5)
+  pagy (~> 6.0)
   puma (~> 5.0)
   rails (~> 7.0.4)
+  rubocop (~> 1.42)
   solargraph (~> 0.48.0)
   solargraph-rails (~> 1.1.0)
   tzinfo-data
