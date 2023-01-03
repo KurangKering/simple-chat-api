@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema[7.0].define(version: 2023_01_03_051912) do
+ActiveRecord::Schema[7.0].define(version: 2023_01_03_143453) do
   create_table "friendships", primary_key: ["id_user_1", "id_user_2"], charset: "utf8mb4", force: :cascade do |t|
     t.integer "id_user_1", null: false
     t.integer "id_user_2", null: false
@@ -44,6 +44,7 @@ ActiveRecord::Schema[7.0].define(version: 2023_01_03_051912) do
     t.string "email", null: false
     t.string "phone_number"
     t.string "password", null: false
+    t.string "image"
     t.string "forgot_password_token"
     t.integer "fake_otp"
     t.datetime "fake_otp_expired_time"
