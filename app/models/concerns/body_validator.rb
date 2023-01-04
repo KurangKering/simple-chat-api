@@ -22,4 +22,14 @@ module BodyValidator
             @id_user = params[:id_user]
         end
     end
+
+    class MessageCreateValidator < BaseBodyValidator
+        attr_accessor :id_recipient, :message
+
+        validates :id_recipient, :message, presence: true
+        def initialize(params)
+            @id_recipient = params[:id_recipient]
+            @message = params[:message]
+        end
+    end
 end

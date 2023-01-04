@@ -1,5 +1,4 @@
 class UsersController < ApplicationController
-  require './app/repositories/user_repository'
 
   def index
     users = UserRepository.list_users(@current_user[:id_user], request.GET)
