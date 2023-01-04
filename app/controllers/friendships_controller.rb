@@ -1,6 +1,4 @@
 class FriendshipsController < ApplicationController
-  require './app/repositories/friendship_repository'
-
   def index
     friendships = FriendshipRepository.list_friends(@current_user[:id_user], request.GET)
     render json: [success: true, message: 'Friends retrieved', data: friendships]
