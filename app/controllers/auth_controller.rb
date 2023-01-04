@@ -1,6 +1,5 @@
 class AuthController < ApplicationController
   skip_before_action :authenticate_request
-
   include BodyValidator
   include BCrypt
   def login
@@ -19,15 +18,22 @@ class AuthController < ApplicationController
   end
 
   def register
-    post_params = params.permit(:name, :email, :phone_number, :password)
+    post_params = params.permit(:name, :email, :phone_number, :image, :password)
     post_params[:password] = User.generate_password(post_params[:password]) if post_params[:password]
-    user = User.new(post_params)
-
-    if user.validate
+    user = User.new(post_params.except(:image))
+    image_error = false
+    if ImageRepository.input_type(params[:image]) != 'image'
+      image_error = true
+    end
+    if user.validate && !image_error
+      user.image = ImageRepository.insert_image(params[:image])
       user.save
-      data = { user: user.attributes.slice('id_user', 'name', 'email', 'phone_number') }
+      data = user.reload.attributes.slice('id_user', 'name', 'email', 'phone_number', 'image')
       render json: { success: true, message: 'Account successfully created', data: }
     else
+      if image_error
+        user.errors.add(:image, 'must be gif, jpg, or png image')
+      end
       data = { errors: user.errors.messages }
       render json: { success: false, message: 'Validation error', data: }
     end
