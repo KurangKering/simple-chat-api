@@ -123,12 +123,12 @@ module FriendshipRepository
     frequest = frequest.first
 
     if !frequest
-      message = 'Friend request not found'
+      message = 'Friend not found'
     else
       dfriend = frequest.delete
       if dfriend
         success = true
-        message = 'Friend removed'
+        message = 'Friend has removed'
       else
         message = 'There is an error when removing friend'
       end
