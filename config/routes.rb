@@ -14,4 +14,7 @@ Rails.application.routes.draw do
   delete '/friendships/:id/reject', to: 'friendships#reject'
   delete '/friendships/:id/remove', to: 'friendships#remove'
 
+  get '/messages/list-conversations', to: 'messages#list_conversations'
+  get '/messages/:id_user', to: 'messages#show'
+
 end
