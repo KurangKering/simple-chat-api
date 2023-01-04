@@ -10,7 +10,7 @@ module MessageRepository
       rec.id_user,
       rec.name,
       m.message,
-      m.type message_type,
+      m.type,
       rec.image,
       m.created_at,
       COUNT(tmp_mr.id_message) count_unread
@@ -39,7 +39,7 @@ module MessageRepository
     messages = messages.where(["m.id_sender = :dest OR mr.id_recipient = :dest", { dest: dest_user }])
     messages = messages.where("m.message LIKE ?", "%" + opt[:search] + "%") unless !opt[:search] || opt[:search].strip.empty?
     messages = messages.joins("JOIN message_recipients mr ON m.id_message = mr.id_message")
-    messages = messages.select("m.id_message, m.id_sender", "mr.id_recipient", "m.message", "m.type message_type", "mr.is_read", "m.created_at")
+    messages = messages.select("m.id_message, m.id_sender", "mr.id_recipient", "m.message", "m.type", "mr.is_read", "m.created_at")
     messages = messages.order('m.created_at': :desc)
     @pagy, @records = pagy(messages, page: opt[:page], items: opt[:items])
     data = { page: @pagy.page, next_page: @pagy.next, total_data: @pagy.count, per_page: @pagy.items, messages: @records }
@@ -92,7 +92,7 @@ module MessageRepository
     msg = Message.from("messages m")
     msg = msg.where(["mr.id_recipient = :curr AND m.id_message = :id_message", { curr: current_user, id_message: }])
     msg = msg.joins("JOIN message_recipients mr ON m.id_message = mr.id_message")
-    msg = msg.select("m.id_message", "mr.read_at", "m.id_sender", "mr.id_recipient", "m.message", "m.type as message_type", "mr.is_read", "m.created_at")
+    msg = msg.select("m.id_message", "mr.read_at", "m.id_sender", "mr.id_recipient", "m.message", "m.type", "mr.is_read", "m.created_at")
     msg = msg.limit(1)
     return [false, 'Message not found', {}] unless msg.any?
     return [false, 'Message already read', {}] if msg[0].is_read == 1
