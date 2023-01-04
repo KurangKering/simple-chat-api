@@ -8,5 +8,10 @@ Rails.application.routes.draw do
   post '/auth/register', to: 'auth#register'
 
   resources :users, only: :index
+  
+  resources :friendships, only: [:index, :show, :create, :update]
+  
+  delete '/friendships/:id/reject', to: 'friendships#reject'
+  delete '/friendships/:id/remove', to: 'friendships#remove'
 
 end
