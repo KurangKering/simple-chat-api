@@ -26,6 +26,6 @@ class ApplicationController < ActionController::API
              status: :unauthorized
     end
   rescue StandardError => e
-    render json: { success: false, message: 'invalid token', data: {} }, status: :unauthorized
+    render json: { success: false, message: e, data: {} }, status: :unauthorized
   end
 end
