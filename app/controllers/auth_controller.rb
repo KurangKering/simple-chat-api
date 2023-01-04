@@ -13,7 +13,7 @@ class AuthController < ApplicationController
       return render json: { success: false, message: 'User not found', data: {} }
     end
 
-    data = { user: user.attributes.slice('id_user', 'name', 'email', 'phone_number'), access_token: jwt_encode(id_user: user[:id_user]) }
+    data = { user: user.attributes.slice('id_user', 'name', 'email', 'phone_number', 'image'), access_token: jwt_encode(id_user: user[:id_user]) }
     render json: { success: true, messages: 'Login success', data: }
   end
 
