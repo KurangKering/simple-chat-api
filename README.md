@@ -1,12 +1,38 @@
-
-
-### Please update your local repository immediately to get the latest version
-
-TO DO : 
-1. update README.md
 # Simple Chat API
 
+## Requirements
+1. Ruby 3.1.3
+2. Mariadb 10.3.10
 
+## Installation
+1. install dependencies by command **bundle install**
+2. If there is an error about mysql2 installation, please refer to this comment [Solve error while installing mysql2](https://github.com/brianmario/mysql2/issues/1210#issuecomment-1249494167)
+3. Modify db configuration in **config/database.yml** and sync the username, password (change the database name is preferred)
+>```
+> default: &default
+>   adapter: mysql2
+>   encoding: utf8mb4
+>   pool: <%= ENV.fetch("RAILS_MAX_THREADS") { 5 } %>
+>   username: root
+>   password: root
+>   host: localhost
+>
+> development:
+>   <<: *default
+>   database: simple_chat_api_development
+>
+> test:
+>   <<: *default
+>   database: simple_chat_api_test
+>```
+4. create an empty database by command **rake db:create**
+5. migrate tables by command **rake db:migrate**
+6. run server by command **rails s**
+7. the API should works fine
+
+
+
+#### ~~I apologize for any mistake related to Ruby dan Ruby on Rails. it's my 3th day using Ruby as programming language. You can check my resume :D. Please consider me for the position~~ 
 
 ## API Documentation
 
@@ -445,7 +471,23 @@ Send a new message. it can be a text or an image
 |message|/D:/Downloads/dummy-user.png|file|
 
 
-#### Response: 200
+#### Response: 200 (the message is image)
+```json
+[
+    {
+        "success": true,
+        "message": "Message sent",
+        "data": {
+            "id_message": 41,
+            "id_sender": 2,
+            "id_recipient": 1,
+            "message": "public/upload/a2bf35f35c8737dcc4fbe4801ab524fd.png",
+            "type": "image"
+        }
+    }
+]
+```
+#### Response: 200 (the message is text)
 ```json
 [
     {
@@ -461,6 +503,7 @@ Send a new message. it can be a text or an image
     }
 ]
 ```
+
 
 
 ⁃ ⁃ ⁃ ⁃ ⁃ ⁃ ⁃ ⁃ ⁃ ⁃ ⁃ ⁃ ⁃ ⁃ ⁃ ⁃ ⁃ ⁃ ⁃ ⁃ ⁃ ⁃ ⁃ ⁃ ⁃ ⁃ ⁃ ⁃ ⁃ ⁃ ⁃ ⁃ ⁃ ⁃ ⁃ ⁃ ⁃ ⁃ ⁃ ⁃ ⁃ ⁃ ⁃ ⁃ ⁃ ⁃ ⁃
