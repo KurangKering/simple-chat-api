@@ -1,5 +1,4 @@
 class ApplicationController < ActionController::API
-  include JsonWebToken
 
   before_action :authenticate_request
 
@@ -19,7 +18,7 @@ class ApplicationController < ActionController::API
                     status: :unauthorized
     end
 
-    decoded = jwt_decode(header)
+    decoded = JsonWebTokenRepository.jwt_decode(header)
     @current_user = User.find(decoded[:id_user])
     unless @current_user
       render json: { success: false, message: 'User not found', data: {} },
