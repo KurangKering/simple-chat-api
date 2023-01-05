@@ -413,7 +413,7 @@ Show messages of spesific friend
 ⁃ ⁃ ⁃ ⁃ ⁃ ⁃ ⁃ ⁃ ⁃ ⁃ ⁃ ⁃ ⁃ ⁃ ⁃ ⁃ ⁃ ⁃ ⁃ ⁃ ⁃ ⁃ ⁃ ⁃ ⁃ ⁃ ⁃ ⁃ ⁃ ⁃ ⁃ ⁃ ⁃ ⁃ ⁃ ⁃ ⁃ ⁃ ⁃ ⁃ ⁃ ⁃ ⁃ ⁃ ⁃ ⁃ ⁃
 
 ### End-point: messages/list-conversations
-Show list of conversations between authenticated user and his friends
+Show list of conversations between authenticated user and his friends. return friend data, last message ( it can be from user or his friend), and total unread messages
 #### Method: GET
 >```
 >{{base_url}}/messages/list-conversations
