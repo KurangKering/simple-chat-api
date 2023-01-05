@@ -1,12 +1,22 @@
-# API Documentation
 
-## End-point: auth/register
+
+### Please update your local repository immediately to get the latest version
+
+TO DO : 
+1. update README.md
+# Simple Chat API
+
+
+
+## API Documentation
+
+### End-point: auth/register
 User must register before using this API
-### Method: POST
+#### Method: POST
 >```
 >{{base_url}}/auth/register
 >```
-### Body formdata
+#### Body formdata
 
 |Param|value|Type|
 |---|---|---|
@@ -17,7 +27,7 @@ User must register before using this API
 |image|/D:/Downloads/head-659652_1280.png|file|
 
 
-### Response: 200
+#### Response: 200
 ```json
 {
     "success": true,
@@ -35,13 +45,13 @@ User must register before using this API
 
 ⁃ ⁃ ⁃ ⁃ ⁃ ⁃ ⁃ ⁃ ⁃ ⁃ ⁃ ⁃ ⁃ ⁃ ⁃ ⁃ ⁃ ⁃ ⁃ ⁃ ⁃ ⁃ ⁃ ⁃ ⁃ ⁃ ⁃ ⁃ ⁃ ⁃ ⁃ ⁃ ⁃ ⁃ ⁃ ⁃ ⁃ ⁃ ⁃ ⁃ ⁃ ⁃ ⁃ ⁃ ⁃ ⁃ ⁃
 
-## End-point: auth/login
+### End-point: auth/login
 Get access token by login and use the token to access any endpoint below
-### Method: POST
+#### Method: POST
 >```
 >{{base_url}}/auth/login
 >```
-### Body formdata
+#### Body formdata
 
 |Param|value|Type|
 |---|---|---|
@@ -49,7 +59,7 @@ Get access token by login and use the token to access any endpoint below
 |password|asd|text|
 
 
-### Response: 200
+#### Response: 200
 ```json
 {
     "success": true,
@@ -71,18 +81,18 @@ Get access token by login and use the token to access any endpoint below
 ⁃ ⁃ ⁃ ⁃ ⁃ ⁃ ⁃ ⁃ ⁃ ⁃ ⁃ ⁃ ⁃ ⁃ ⁃ ⁃ ⁃ ⁃ ⁃ ⁃ ⁃ ⁃ ⁃ ⁃ ⁃ ⁃ ⁃ ⁃ ⁃ ⁃ ⁃ ⁃ ⁃ ⁃ ⁃ ⁃ ⁃ ⁃ ⁃ ⁃ ⁃ ⁃ ⁃ ⁃ ⁃ ⁃ ⁃
 
 
-## End-point: users
-### Method: GET
+### End-point: users
+#### Method: GET
 >```
 >{{base_url}}/users
 >```
-### Body formdata
+#### Body formdata
 
 |Param|value|Type|
 |---|---|---|
 
 
-### Query Params
+#### Query Params
 
 |Param|value|
 |---|---|
@@ -91,7 +101,7 @@ Get access token by login and use the token to access any endpoint below
 |search|account|
 
 
-### Response: 200
+#### Response: 200
 ```json
 [
     {
@@ -122,19 +132,19 @@ Get access token by login and use the token to access any endpoint below
 ⁃ ⁃ ⁃ ⁃ ⁃ ⁃ ⁃ ⁃ ⁃ ⁃ ⁃ ⁃ ⁃ ⁃ ⁃ ⁃ ⁃ ⁃ ⁃ ⁃ ⁃ ⁃ ⁃ ⁃ ⁃ ⁃ ⁃ ⁃ ⁃ ⁃ ⁃ ⁃ ⁃ ⁃ ⁃ ⁃ ⁃ ⁃ ⁃ ⁃ ⁃ ⁃ ⁃ ⁃ ⁃ ⁃ ⁃
 
 
-## End-point: friendships
+### End-point: friendships
 Show all friends of authenticated user
-### Method: GET
+#### Method: GET
 >```
 >{{base_url}}/friendships
 >```
-### Body formdata
+#### Body formdata
 
 |Param|value|Type|
 |---|---|---|
 
 
-### Query Params
+#### Query Params
 
 |Param|value|
 |---|---|
@@ -143,7 +153,7 @@ Show all friends of authenticated user
 |search|tes|
 
 
-### Response: 200
+#### Response: 200
 ```json
 [
     {
@@ -171,13 +181,13 @@ Show all friends of authenticated user
 
 ⁃ ⁃ ⁃ ⁃ ⁃ ⁃ ⁃ ⁃ ⁃ ⁃ ⁃ ⁃ ⁃ ⁃ ⁃ ⁃ ⁃ ⁃ ⁃ ⁃ ⁃ ⁃ ⁃ ⁃ ⁃ ⁃ ⁃ ⁃ ⁃ ⁃ ⁃ ⁃ ⁃ ⁃ ⁃ ⁃ ⁃ ⁃ ⁃ ⁃ ⁃ ⁃ ⁃ ⁃ ⁃ ⁃ ⁃
 
-## End-point: friendships/:id_user
+### End-point: friendships/:id_user
 Show profile of authenticated user's friend
-### Method: GET
+#### Method: GET
 >```
 >{{base_url}}/friendships/1
 >```
-### Response: 200
+#### Response: 200
 ```json
 [
     {
@@ -199,19 +209,19 @@ Show profile of authenticated user's friend
 
 ⁃ ⁃ ⁃ ⁃ ⁃ ⁃ ⁃ ⁃ ⁃ ⁃ ⁃ ⁃ ⁃ ⁃ ⁃ ⁃ ⁃ ⁃ ⁃ ⁃ ⁃ ⁃ ⁃ ⁃ ⁃ ⁃ ⁃ ⁃ ⁃ ⁃ ⁃ ⁃ ⁃ ⁃ ⁃ ⁃ ⁃ ⁃ ⁃ ⁃ ⁃ ⁃ ⁃ ⁃ ⁃ ⁃ ⁃
 
-## End-point: friendships/pending
+### End-point: friendships/pending
 Show all pending friend requests
-### Method: GET
+#### Method: GET
 >```
 >{{base_url}}/friendships/pending
 >```
-### Body formdata
+#### Body formdata
 
 |Param|value|Type|
 |---|---|---|
 
 
-### Query Params
+#### Query Params
 
 |Param|value|
 |---|---|
@@ -220,7 +230,7 @@ Show all pending friend requests
 |search|tes|
 
 
-### Response: 200
+#### Response: 200
 ```json
 [
     {
@@ -250,20 +260,20 @@ Show all pending friend requests
 
 ⁃ ⁃ ⁃ ⁃ ⁃ ⁃ ⁃ ⁃ ⁃ ⁃ ⁃ ⁃ ⁃ ⁃ ⁃ ⁃ ⁃ ⁃ ⁃ ⁃ ⁃ ⁃ ⁃ ⁃ ⁃ ⁃ ⁃ ⁃ ⁃ ⁃ ⁃ ⁃ ⁃ ⁃ ⁃ ⁃ ⁃ ⁃ ⁃ ⁃ ⁃ ⁃ ⁃ ⁃ ⁃ ⁃ ⁃
 
-## End-point: friendships
+### End-point: friendships
 Make a friend request
-### Method: POST
+#### Method: POST
 >```
 >{{base_url}}/friendships
 >```
-### Body formdata
+#### Body formdata
 
 |Param|value|Type|
 |---|---|---|
 |id_user|4|text|
 
 
-### Response: 200
+#### Response: 200
 ```json
 [
     {
@@ -284,19 +294,19 @@ Make a friend request
 
 ⁃ ⁃ ⁃ ⁃ ⁃ ⁃ ⁃ ⁃ ⁃ ⁃ ⁃ ⁃ ⁃ ⁃ ⁃ ⁃ ⁃ ⁃ ⁃ ⁃ ⁃ ⁃ ⁃ ⁃ ⁃ ⁃ ⁃ ⁃ ⁃ ⁃ ⁃ ⁃ ⁃ ⁃ ⁃ ⁃ ⁃ ⁃ ⁃ ⁃ ⁃ ⁃ ⁃ ⁃ ⁃ ⁃ ⁃
 
-## End-point: friendships/:id_user
+### End-point: friendships/:id_user
 Accept a friend request
-### Method: PATCH
+#### Method: PATCH
 >```
 >{{base_url}}/friendships/1
 >```
-### Body formdata
+#### Body formdata
 
 |Param|value|Type|
 |---|---|---|
 
 
-### Response: 200
+#### Response: 200
 ```json
 [
     {
@@ -310,18 +320,18 @@ Accept a friend request
 
 ⁃ ⁃ ⁃ ⁃ ⁃ ⁃ ⁃ ⁃ ⁃ ⁃ ⁃ ⁃ ⁃ ⁃ ⁃ ⁃ ⁃ ⁃ ⁃ ⁃ ⁃ ⁃ ⁃ ⁃ ⁃ ⁃ ⁃ ⁃ ⁃ ⁃ ⁃ ⁃ ⁃ ⁃ ⁃ ⁃ ⁃ ⁃ ⁃ ⁃ ⁃ ⁃ ⁃ ⁃ ⁃ ⁃ ⁃
 
-## End-point: friendships/:id_user/reject
+### End-point: friendships/:id_user/reject
 Reject a friend request
-### Method: DELETE
+#### Method: DELETE
 >```
 >{{base_url}}/friendships/1/reject
 >```
 
 ⁃ ⁃ ⁃ ⁃ ⁃ ⁃ ⁃ ⁃ ⁃ ⁃ ⁃ ⁃ ⁃ ⁃ ⁃ ⁃ ⁃ ⁃ ⁃ ⁃ ⁃ ⁃ ⁃ ⁃ ⁃ ⁃ ⁃ ⁃ ⁃ ⁃ ⁃ ⁃ ⁃ ⁃ ⁃ ⁃ ⁃ ⁃ ⁃ ⁃ ⁃ ⁃ ⁃ ⁃ ⁃ ⁃ ⁃
 
-## End-point: friendships/:id_user/remove
+### End-point: friendships/:id_user/remove
 Delete a friend
-### Method: DELETE
+#### Method: DELETE
 >```
 >{{base_url}}/friendships/1/remove
 >```
@@ -329,19 +339,19 @@ Delete a friend
 ⁃ ⁃ ⁃ ⁃ ⁃ ⁃ ⁃ ⁃ ⁃ ⁃ ⁃ ⁃ ⁃ ⁃ ⁃ ⁃ ⁃ ⁃ ⁃ ⁃ ⁃ ⁃ ⁃ ⁃ ⁃ ⁃ ⁃ ⁃ ⁃ ⁃ ⁃ ⁃ ⁃ ⁃ ⁃ ⁃ ⁃ ⁃ ⁃ ⁃ ⁃ ⁃ ⁃ ⁃ ⁃ ⁃ ⁃
 
 
-## End-point: messages/:id_user
+### End-point: messages/:id_user
 Show messages of spesific friend
-### Method: GET
+#### Method: GET
 >```
 >{{base_url}}/messages/1
 >```
-### Body formdata
+#### Body formdata
 
 |Param|value|Type|
 |---|---|---|
 
 
-### Response: 200
+#### Response: 200
 ```json
 [
     {
@@ -371,19 +381,19 @@ Show messages of spesific friend
 
 ⁃ ⁃ ⁃ ⁃ ⁃ ⁃ ⁃ ⁃ ⁃ ⁃ ⁃ ⁃ ⁃ ⁃ ⁃ ⁃ ⁃ ⁃ ⁃ ⁃ ⁃ ⁃ ⁃ ⁃ ⁃ ⁃ ⁃ ⁃ ⁃ ⁃ ⁃ ⁃ ⁃ ⁃ ⁃ ⁃ ⁃ ⁃ ⁃ ⁃ ⁃ ⁃ ⁃ ⁃ ⁃ ⁃ ⁃
 
-## End-point: messages/list-conversations
+### End-point: messages/list-conversations
 Show list of conversations between authenticated user and his friends
-### Method: GET
+#### Method: GET
 >```
 >{{base_url}}/messages/list-conversations
 >```
-### Body formdata
+#### Body formdata
 
 |Param|value|Type|
 |---|---|---|
 
 
-### Query Params
+#### Query Params
 
 |Param|value|
 |---|---|
@@ -391,7 +401,7 @@ Show list of conversations between authenticated user and his friends
 |items|10|
 
 
-### Response: 200
+#### Response: 200
 ```json
 [
     {
@@ -421,13 +431,13 @@ Show list of conversations between authenticated user and his friends
 
 ⁃ ⁃ ⁃ ⁃ ⁃ ⁃ ⁃ ⁃ ⁃ ⁃ ⁃ ⁃ ⁃ ⁃ ⁃ ⁃ ⁃ ⁃ ⁃ ⁃ ⁃ ⁃ ⁃ ⁃ ⁃ ⁃ ⁃ ⁃ ⁃ ⁃ ⁃ ⁃ ⁃ ⁃ ⁃ ⁃ ⁃ ⁃ ⁃ ⁃ ⁃ ⁃ ⁃ ⁃ ⁃ ⁃ ⁃
 
-## End-point: messages
+### End-point: messages
 Send a new message. it can be a text or an image
-### Method: POST
+#### Method: POST
 >```
 >{{base_url}}/messages/
 >```
-### Body formdata
+#### Body formdata
 
 |Param|value|Type|
 |---|---|---|
@@ -435,7 +445,7 @@ Send a new message. it can be a text or an image
 |message|/D:/Downloads/dummy-user.png|file|
 
 
-### Response: 200
+#### Response: 200
 ```json
 [
     {
@@ -455,19 +465,19 @@ Send a new message. it can be a text or an image
 
 ⁃ ⁃ ⁃ ⁃ ⁃ ⁃ ⁃ ⁃ ⁃ ⁃ ⁃ ⁃ ⁃ ⁃ ⁃ ⁃ ⁃ ⁃ ⁃ ⁃ ⁃ ⁃ ⁃ ⁃ ⁃ ⁃ ⁃ ⁃ ⁃ ⁃ ⁃ ⁃ ⁃ ⁃ ⁃ ⁃ ⁃ ⁃ ⁃ ⁃ ⁃ ⁃ ⁃ ⁃ ⁃ ⁃ ⁃
 
-## End-point: messages/:id_message/mark
+### End-point: messages/:id_message/mark
 Mark a message as read
-### Method: PATCH
+#### Method: PATCH
 >```
 >{{base_url}}/messages/40/mark
 >```
-### Body formdata
+#### Body formdata
 
 |Param|value|Type|
 |---|---|---|
 
 
-### Response: 200
+#### Response: 200
 ```json
 [
     {
