@@ -4,7 +4,7 @@ module UserRepository
 
   def list_users(exc_user, opt = {})
     opt[:page] = opt[:page] || 1
-    opt[:items] = opt[:items] || 2
+    opt[:items] = opt[:items] || 10
     opt[:search] = opt[:search] || nil
     user = User.where.not("u.id_user": exc_user)
     user = user.where("u.name LIKE ?", "%" + opt[:search] + "%") unless !opt[:search] || opt[:search].strip.empty?
