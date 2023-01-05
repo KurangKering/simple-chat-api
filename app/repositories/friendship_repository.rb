@@ -44,6 +44,14 @@ module FriendshipRepository
   def add(current_user, dest_user)
     success = false
     message = ''
+    data = {}
+    
+    return [success, 'sender and receiver id is same', data] if current_user == dest_user
+
+    user = User.where(id_user: dest_user).select('id_user', 'email', 'name', 'image').first
+    
+    return [success, 'Requested friend not found', data] unless user
+
     friend = Friendship
     friend = friend.where("id_user_1 = #{current_user} OR id_user_2 = #{current_user}")
     friend = friend.where("id_user_1 = #{dest_user} OR id_user_2 = #{dest_user}")
@@ -55,15 +63,16 @@ module FriendshipRepository
         message = 'You are friends'
       end
     else
-      friend = Friendship.create({ 'id_user_1': current_user, 'id_user_2': dest_user, 'status': 'pending' })
-      if friend.persisted?
+      cfriend = Friendship.create({ 'id_user_1': current_user, 'id_user_2': dest_user, 'status': 'pending' })
+      if cfriend.persisted?
+        data = user
         success = true
         message = 'Request sent'
       else
         message = 'Failed'
       end
     end
-    [success, message]
+    [success, message, data]
   end
 
   def accept(current_user, dest_user)

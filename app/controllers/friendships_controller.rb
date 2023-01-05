@@ -27,8 +27,8 @@ class FriendshipsController < ApplicationController
 
     return render json: { success: false, message: 'Validation error', data: validator.errors.messages } unless validator.valid?
 
-    is_success, message = FriendshipRepository.add(@current_user[:id_user], request.POST[:id_user])
-    render json: [success: is_success, message:, data: {}]
+    is_success, message, data = FriendshipRepository.add(@current_user[:id_user], request.POST[:id_user])
+    render json: [success: is_success, message:, data: data]
   end
 
   # accept friend request
