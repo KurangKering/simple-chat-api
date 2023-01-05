@@ -7,7 +7,8 @@ class MessagesController < ApplicationController
 
   # show all messages from current user and recipent user ordered by date created desc
   def show
-    is_success, message, data = MessageRepository.show_messages(@current_user[:id_user], params[:id_user], request.GET)
+    dest_user = params[:id]
+    is_success, message, data = MessageRepository.show_messages(@current_user[:id_user], dest_user, request.GET)
     render json: [success: is_success, message:, data:]
   end
 
