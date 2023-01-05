@@ -53,17 +53,18 @@ User must register before using this API
 |image|/D:/Downloads/head-659652_1280.png|file|
 
 
-#### Response: 200
+#### Response: 200 
+
 ```json
 {
     "success": true,
     "message": "Account successfully created",
     "data": {
-        "id_user": 1,
-        "name": "Ilham Rahmadhani",
-        "email": "cybercature@gmail.com",
-        "phone_number": "+6281298795858",
-        "image": "public/upload/c37a3ad4bb2a13ca036f78633c52686e.gif"
+        "id_user": 2,
+        "name": "Test Account 1",
+        "email": "testaccount1@gmail.com",
+        "phone_number": "+628123456789",
+        "image": "public/upload/01cdb7d9b7a5bc0408555bcf4e659aa9.png"
     }
 }
 ```
